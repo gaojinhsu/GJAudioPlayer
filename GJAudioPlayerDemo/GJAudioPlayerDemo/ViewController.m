@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "GJFileAudioPlayer.h"
+#import "GJAudioFilePlayer.h"
 
 @interface ViewController ()
 

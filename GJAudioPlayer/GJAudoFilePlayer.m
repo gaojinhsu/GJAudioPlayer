@@ -6,13 +6,12 @@
 //  Copyright (c) 2015 gensee. All rights reserved.
 //
 
-#import "GJFileAudioPlayer.h"
+#import "GJAudioFilePlayer.h"
 #import <OpenAL/al.h>
 #import <OpenAL/alc.h>
 #import <AudioToolbox/AudioToolbox.h>
 
-@implementation GJFileAudioPlayer
-{
+@implementation GJFileAudioPlayer {
     ALCcontext *_context;
     ALCdevice *_device;
     ALuint _sourceID;
@@ -20,25 +19,21 @@
     NSTimer *_timer;
 }
 
-- (id)init
-{
+- (instancetype)init {
     self = [super init];
-    if (self)
-    {
+    if (self) {
         [self initOpenAL];
     }
     return self;
 }
 
-- (BOOL)isPlaying
-{
+- (BOOL)isPlaying {
     ALint state;
     alGetSourcei(_sourceID, AL_SOURCE_STATE, &state);
     return state == AL_PLAYING;
 }
 
-- (void)play
-{
+- (void)play {
     ALint state;
     alGetSourcei(_sourceID, AL_SOURCE_STATE, &state);
     
@@ -47,8 +42,7 @@
     }
 }
 
-- (void)stop
-{
+- (void)stop {
     ALint state;
     alGetSourcei(_sourceID, AL_SOURCE_STATE, &state);
     
@@ -57,20 +51,16 @@
     }
 }
 
-
-- (BOOL)initOpenAL
-{
+- (BOOL)initOpenAL {
     if (!_device) {
         // open the device
         _device = alcOpenDevice(NULL);
     }
-    
     if (!_device) {
         
         NSLog(@"openAL: open device failed");
         return NO;
     }
-    
     if (!_context) {
         
         // create context within the device
@@ -79,25 +69,19 @@
         // set the context created above to the currently active one
         alcMakeContextCurrent(_context);
     }
-    
     if (!_context) {
         NSLog(@"openAL: create context failed");
         return NO;
     }
-    
     return YES;
 }
-
-
 
 
 #pragma mark -
 #pragma mark Play Audio File Methods
 
-- (void)playAudioFile:(NSString*)filePath loopMode:(BOOL)isLoop
-{
-    if (!filePath)
-    {
+- (void)playAudioFile:(NSString*)filePath loopMode:(BOOL)isLoop {
+    if (!filePath) {
         NSLog(@"openAL: filePath is nil");
         return;
     }
@@ -152,8 +136,7 @@
 
 }
 
-- (AudioFileID)openAudioFile:(NSString*)filePath
-{
+- (AudioFileID)openAudioFile:(NSString*)filePath {
     AudioFileID outFileID;
     
     NSURL *aUrl = [NSURL fileURLWithPath:filePath];
@@ -168,13 +151,11 @@
 
 }
 
-- (UInt32)audioFileSize:(AudioFileID)audioFileID
-{
+- (UInt32)audioFileSize:(AudioFileID)audioFileID {
     UInt64 outDataSize = 0;
     UInt32 thePropSize = sizeof(UInt64);
     OSStatus result = AudioFileGetProperty(audioFileID, kAudioFilePropertyAudioDataByteCount, &thePropSize, &outDataSize);
-    if(result != 0)
-    {
+    if(result != 0) {
         NSLog(@"openAL: cannot find file size");
  
     }
@@ -184,8 +165,7 @@
 #pragma mark -
 #pragma mark Clean Resources
 
-- (void)cleanUpOpenAL
-{
+- (void)cleanUpOpenAL {
     // delete the source
     alDeleteSources(1, &_sourceID);
     
@@ -201,8 +181,7 @@
     _device = NULL;
 }
 
-- (void)dealloc
-{
+- (void)dealloc {
     [self cleanUpOpenAL];
 }
 

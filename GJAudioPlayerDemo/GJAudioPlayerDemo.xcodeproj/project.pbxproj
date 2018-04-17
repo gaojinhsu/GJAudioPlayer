@@ -14,9 +14,9 @@
 		658ACADD1B4AC08F001F0D92 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 658ACADC1B4AC08F001F0D92 /* Images.xcassets */; };
 		658ACAE01B4AC08F001F0D92 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 658ACADE1B4AC08F001F0D92 /* LaunchScreen.xib */; };
 		658ACAEC1B4AC08F001F0D92 /* GJAudioPlayerDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 658ACAEB1B4AC08F001F0D92 /* GJAudioPlayerDemoTests.m */; };
-		658ACAFA1B4AC153001F0D92 /* GJFileAudoPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 658ACAF71B4AC153001F0D92 /* GJFileAudoPlayer.m */; };
-		658ACAFB1B4AC153001F0D92 /* GJStreamingAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 658ACAF91B4AC153001F0D92 /* GJStreamingAudioPlayer.m */; };
 		658ACAFD1B4AC16A001F0D92 /* outSound.caf in Resources */ = {isa = PBXBuildFile; fileRef = 658ACAFC1B4AC16A001F0D92 /* outSound.caf */; };
+		65D61F002085D1F800BA5262 /* GJAudioStreamPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D61EFD2085D1F800BA5262 /* GJAudioStreamPlayer.m */; };
+		65D61F012085D1F800BA5262 /* GJAudoFilePlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D61EFE2085D1F800BA5262 /* GJAudoFilePlayer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,11 +43,11 @@
 		658ACAE51B4AC08F001F0D92 /* GJAudioPlayerDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GJAudioPlayerDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		658ACAEA1B4AC08F001F0D92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		658ACAEB1B4AC08F001F0D92 /* GJAudioPlayerDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GJAudioPlayerDemoTests.m; sourceTree = "<group>"; };
-		658ACAF61B4AC153001F0D92 /* GJFileAudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GJFileAudioPlayer.h; sourceTree = "<group>"; };
-		658ACAF71B4AC153001F0D92 /* GJFileAudoPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GJFileAudoPlayer.m; sourceTree = "<group>"; };
-		658ACAF81B4AC153001F0D92 /* GJStreamingAudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GJStreamingAudioPlayer.h; sourceTree = "<group>"; };
-		658ACAF91B4AC153001F0D92 /* GJStreamingAudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GJStreamingAudioPlayer.m; sourceTree = "<group>"; };
 		658ACAFC1B4AC16A001F0D92 /* outSound.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = outSound.caf; sourceTree = "<group>"; };
+		65D61EFA2085D1F800BA5262 /* GJAudioFilePlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GJAudioFilePlayer.h; sourceTree = "<group>"; };
+		65D61EFB2085D1F800BA5262 /* GJAudioStreamPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GJAudioStreamPlayer.h; sourceTree = "<group>"; };
+		65D61EFD2085D1F800BA5262 /* GJAudioStreamPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GJAudioStreamPlayer.m; sourceTree = "<group>"; };
+		65D61EFE2085D1F800BA5262 /* GJAudoFilePlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GJAudoFilePlayer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,7 +71,7 @@
 		658ACAC31B4AC08E001F0D92 = {
 			isa = PBXGroup;
 			children = (
-				658ACAF51B4AC153001F0D92 /* GJAudioPlayer */,
+				65D61EF82085D1F800BA5262 /* GJAudioPlayer */,
 				658ACACE1B4AC08F001F0D92 /* GJAudioPlayerDemo */,
 				658ACAE81B4AC08F001F0D92 /* GJAudioPlayerDemoTests */,
 				658ACACD1B4AC08F001F0D92 /* Products */,
@@ -129,13 +129,13 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		658ACAF51B4AC153001F0D92 /* GJAudioPlayer */ = {
+		65D61EF82085D1F800BA5262 /* GJAudioPlayer */ = {
 			isa = PBXGroup;
 			children = (
-				658ACAF61B4AC153001F0D92 /* GJFileAudioPlayer.h */,
-				658ACAF71B4AC153001F0D92 /* GJFileAudoPlayer.m */,
-				658ACAF81B4AC153001F0D92 /* GJStreamingAudioPlayer.h */,
-				658ACAF91B4AC153001F0D92 /* GJStreamingAudioPlayer.m */,
+				65D61EFB2085D1F800BA5262 /* GJAudioStreamPlayer.h */,
+				65D61EFD2085D1F800BA5262 /* GJAudioStreamPlayer.m */,
+				65D61EFA2085D1F800BA5262 /* GJAudioFilePlayer.h */,
+				65D61EFE2085D1F800BA5262 /* GJAudoFilePlayer.m */,
 			);
 			name = GJAudioPlayer;
 			path = ../GJAudioPlayer;
@@ -185,11 +185,12 @@
 		658ACAC41B4AC08E001F0D92 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0640;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = gensee;
 				TargetAttributes = {
 					658ACACB1B4AC08F001F0D92 = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = 6H63F9597K;
 					};
 					658ACAE41B4AC08F001F0D92 = {
 						CreatedOnToolsVersion = 6.4;
@@ -242,11 +243,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				658ACAFA1B4AC153001F0D92 /* GJFileAudoPlayer.m in Sources */,
-				658ACAFB1B4AC153001F0D92 /* GJStreamingAudioPlayer.m in Sources */,
 				658ACAD81B4AC08F001F0D92 /* ViewController.m in Sources */,
+				65D61F012085D1F800BA5262 /* GJAudoFilePlayer.m in Sources */,
 				658ACAD51B4AC08F001F0D92 /* AppDelegate.m in Sources */,
 				658ACAD21B4AC08F001F0D92 /* main.m in Sources */,
+				65D61F002085D1F800BA5262 /* GJAudioStreamPlayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,19 +297,30 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -339,13 +351,23 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -372,8 +394,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 6H63F9597K;
 				INFOPLIST_FILE = GJAudioPlayerDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.gensee.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -382,8 +406,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 6H63F9597K;
 				INFOPLIST_FILE = GJAudioPlayerDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.gensee.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -402,6 +428,7 @@
 				);
 				INFOPLIST_FILE = GJAudioPlayerDemoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.gensee.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GJAudioPlayerDemo.app/GJAudioPlayerDemo";
 			};
@@ -417,6 +444,7 @@
 				);
 				INFOPLIST_FILE = GJAudioPlayerDemoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.gensee.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GJAudioPlayerDemo.app/GJAudioPlayerDemo";
 			};
@@ -441,6 +469,7 @@
 				658ACAF11B4AC08F001F0D92 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		658ACAF21B4AC08F001F0D92 /* Build configuration list for PBXNativeTarget "GJAudioPlayerDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -449,6 +478,7 @@
 				658ACAF41B4AC08F001F0D92 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -10,7 +10,7 @@
 
 @interface GJFileAudioPlayer : NSObject
 
-- (id)init;
+- (instancetype)init;
 
 - (void)playAudioFile:(NSString*)filePath loopMode:(BOOL)isLoop;
 

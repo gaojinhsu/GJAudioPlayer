@@ -6,21 +6,18 @@
 //  Copyright (c) 2015 gensee. All rights reserved.
 //
 
-#import "GJStreamingAudioPlayer.h"
+#import "GJAudioStreamPlayer.h"
 #import <OpenAL/al.h>
 #import <OpenAL/alc.h>
 
-@implementation GJStreamingAudioPlayer
-{
+@implementation GJStreamingAudioPlayer {
     ALCcontext *_context;
     ALCdevice *_device;
     ALuint _sourceID;
     NSTimer *_timer;
-
 }
 
-- (BOOL)initOpenAL
-{
+- (BOOL)initOpenAL {
     if (!_device) {
         // open the device
         _device = alcOpenDevice(NULL);
@@ -62,6 +59,7 @@
     
     // set a timer to clean processed buffers
     _timer = [NSTimer scheduledTimerWithTimeInterval:2.f target:self selector:@selector(cleanBuffers) userInfo:0 repeats:YES];
+    [[NSRunLoop currentRunLoop]addTimer:_timer forMode:NSRunLoopCommonModes];
     
     return YES;
 }
@@ -69,10 +67,7 @@
 #pragma mark -
 #pragma mark Play Audio Stream Methods
 
-- (void)receiveAudioStreamData:(const unsigned char*)data length:(unsigned)length
-{
-    @synchronized(self)
-    {
+- (void)receiveAudioStreamData:(const unsigned char*)data length:(unsigned)length {
         ALenum error;
         
         error = alGetError();
@@ -114,11 +109,9 @@
         
         // play streaming audio
         [self play];
-    }
 }
 
-- (void)play
-{
+- (void)play {
     ALint state;
     alGetSourcei(_sourceID, AL_SOURCE_STATE, &state);
     
@@ -127,8 +120,7 @@
     }
 }
 
-- (void)stop
-{
+- (void)stop {
     ALint state;
     alGetSourcei(_sourceID, AL_SOURCE_STATE, &state);
     
@@ -138,8 +130,7 @@
 }
 
 
-- (void)cleanBuffers
-{
+- (void)cleanBuffers {
     
 #ifdef DEBUG
     NSLog(@"openAL: before clean up");
@@ -167,8 +158,7 @@
     
 }
 
-- (void)getInfo
-{
+- (void)getInfo {
     ALint queued;
     ALint processed;
     alGetSourcei(_sourceID, AL_BUFFERS_PROCESSED, &processed);
@@ -180,8 +170,7 @@
 #pragma mark -
 #pragma mark Clean Resources
 
-- (void)cleanUpOpenAL
-{
+- (void)cleanUpOpenAL {
     // delete the source
     alDeleteSources(1, &_sourceID);
     
@@ -198,13 +187,10 @@
         [_timer invalidate];
         _timer = nil;
     }
-    
     [self cleanBuffers];
 }
 
-
-- (void)dealloc
-{
+- (void)dealloc {
     [self cleanUpOpenAL];
 }
 
